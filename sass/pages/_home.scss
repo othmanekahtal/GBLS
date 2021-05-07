@@ -1,0 +1,95 @@
+@import "../abstracts/variables";
+.section {
+  &-about {
+    padding: 45rem 0 25rem;
+    background-color: $gray-light-color-1;
+    margin-top: -40rem;
+  }
+  &-tours {
+    padding: 25rem 0 20rem;
+
+    margin-top: -10rem;
+    background-color: $gray-light-color-1;
+    .row {
+      @include respond(lab-port) {
+        width: 100%;
+        padding: 3rem 6rem;
+      }
+      & [class^="col"] {
+        @include respond(lab-port) {
+          width: 100%;
+          margin-bottom: 7.5rem;
+        }
+      }
+    }
+  }
+  &-stories {
+    padding: 15rem 0;
+    position: relative;
+    overflow: hidden;
+  }
+  &-booking {
+    padding: 10rem 0;
+    background-image: linear-gradient(
+      to right bottom,
+      $light-orange,
+      $Dark-orange
+    );
+    .row {
+      padding: 0;
+      .booking {
+        &-container {
+          background-image: linear-gradient(
+              105deg,
+              rgba($white-color, 0.9) 0%,
+              rgba($white-color, 0.9) 50%,
+              transparent 50%
+            ),
+            url("../img/img-6.jpg");
+          background-size: cover;
+          border-radius: 0.5rem;
+          overflow: hidden;
+          width: 100%;
+          background-repeat: no-repeat;
+          box-shadow: 0 1.5rem 2rem rgba(#000000, 0.2);
+          @include respond(lab-land) {
+            background-image: linear-gradient(
+                105deg,
+                rgba($white-color, 0.9) 0%,
+                rgba($white-color, 0.9) 65%,
+                transparent 65%
+              ),
+              url("../img/img-6.jpg");
+            background-size: cover;
+          }
+          @include respond(phone) {
+            background-image: linear-gradient(
+                to right,
+                rgba($white-color, 0.9) 0%,
+                rgba($white-color, 0.9) 100%
+              ),
+              url("../img/img-6.jpg");
+          }
+        }
+        &-content {
+          width: 50%;
+          padding: 6rem;
+          h2 {
+            @include respond(phone) {
+              display: block;
+              text-align: center;
+            }
+          }
+          @include respond(lab-land) {
+            width: 65%;
+            padding: 5rem;
+          }
+          @include respond(phone) {
+            width: 100%;
+            padding: 3.5rem;
+          }
+        }
+      }
+    }
+  }
+}

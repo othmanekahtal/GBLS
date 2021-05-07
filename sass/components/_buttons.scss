@@ -1,0 +1,86 @@
+@import "../abstracts/variables";
+.btn {
+  cursor: pointer;
+  display: inline-block;
+  text-decoration: none;
+  &--primary {
+    font-weight: 400;
+    padding: 1.5rem 4.5rem;
+    border: none;
+    outline: none;
+    position: relative;
+    border-radius: 3.5rem;
+    transition: all 0.25s $main-animation-function;
+    font-size: $default-font-size;
+    text-transform: uppercase;
+    &:hover {
+      box-shadow: 0 0.5rem 1.5rem rgba(#000000, 0.15);
+      transform: translateY(-0.3rem);
+      transition: all 0.25s $main-animation-function;
+      &::after {
+        transform: scale(1.4, 1.6);
+        opacity: 0;
+      }
+    }
+    &:active {
+      transform: translateY(-0.1rem);
+    }
+    &::after {
+      content: "";
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      border-radius: 3.5rem;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      transition: all 0.25s $main-animation-function;
+    }
+  }
+  &--text {
+    font-size: $default-font-size;
+    text-decoration: none;
+    color: $Medium-green;
+    padding: 0.3rem;
+    transition: all 0.2s $main-animation-function;
+    background-size: 0.1rem 100%;
+    border-bottom: $Medium-green 1px solid;
+    position: relative;
+    &:hover {
+      top: -0.2rem;
+      color: $white-color;
+      background-color: $Medium-green;
+      box-shadow: 0 1rem 2rem rgba(#000000, 0.15);
+      transform: translateY(-0.2rem);
+    }
+    &:active {
+      box-shadow: 0 0.5rem 1rem rgba(#000000, 0.15);
+      transform: translateY(0);
+    }
+  }
+
+  &--white {
+    background: $white-color;
+    color: $gray-color;
+    &::after {
+      background-color: $white-color;
+    }
+  }
+  &--animated {
+    animation: move-top 1s $main-animation-function;
+  }
+  &--green {
+    background: $Medium-green;
+    color: $white-color;
+    &::after {
+      background-color: $Medium-green;
+    }
+  }
+  &--green {
+    background: linear-gradient(to top right, $Dark-orange, $light-orange);
+    color: $white-color;
+    &::after {
+      background: linear-gradient(to top right, $Dark-orange, $light-orange);
+    }
+  }
+}

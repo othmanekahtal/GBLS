@@ -1,0 +1,56 @@
+@import "../abstracts/variables";
+
+.header {
+  position: relative;
+  height: calc(100vh - 3rem);
+  background-image: linear-gradient(
+      to left bottom,
+      rgba($Light-green, 0.8),
+      rgba($Dark-green, 0.8)
+    ),
+    url("../img/header_img.jpg");
+  background-position: center;
+  background-size: cover;
+  clip-path: polygon(0% 0%, 100% 0%, 100% 80%, 0% 100%);
+  padding: 4rem;
+  @include respond(lab-port) {
+    height: 100vh;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 85%, 0% 100%);
+  }
+  &__logo {
+    height: 6.5rem;
+  }
+  &__menu {
+    position: fixed;
+    top: 6rem;
+    right: 6.5rem;
+    width: 6.5rem;
+    height: 6.5rem;
+    background-color: $white-color;
+    border-radius: 50%;
+  }
+  &__content {
+    position: absolute;
+    top: 40%;
+    right: 50%;
+    transform: translate(50%, -50%);
+    text-align: center;
+  }
+  &__menu {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    span {
+      background-color: black;
+      display: block;
+      width: 45%;
+      height: 0.2rem;
+      margin-bottom: 0.7rem;
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+    }
+  }
+}

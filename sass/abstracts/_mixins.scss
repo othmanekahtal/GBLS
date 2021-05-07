@@ -1,0 +1,58 @@
+@mixin add-gutter($gutter, $number-of-gutter, $number) {
+  width: calc-width($gutter, $number-of-gutter, $number);
+  &:not(:last-of-type) {
+    margin-right: $gutter;
+  }
+}
+@mixin hack-clear-fix {
+  &::after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+}
+@mixin linearGradient($color1, $color2) {
+  background-image: linear-gradient(to right, $color1, $color2);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+@mixin linearGradientSecondary($color1, $color2) {
+  background-image: linear-gradient(to right, $color1, $color2);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+/*
+  // MEDIA QUERIES MANAGER
+  media queries rules :
+  -phone : 0-600px ::37.5em
+  -lab-port : 600px-900px ::56.25em
+  -lab-land : 900px-1200px
+  -big-desktop : 1800px ++
+*/
+@mixin respond($breakpoint) {
+  @if $breakpoint==phone {
+    @media only screen and (max-width: 37.5em) {
+      @content;
+    }
+  }
+  @if $breakpoint==lab-port {
+    @media only screen and (max-width: 56.25em) {
+      @content;
+    }
+  }
+  @if $breakpoint==lab-land {
+    @media only screen and (max-width: 75em) {
+      @content;
+    }
+  }
+  @if $breakpoint==big-desktop {
+    @media only screen and (min-width: 112.5em) {
+      @content;
+    }
+  }
+}
+// you will always in media query convert the px to em
+// 1em == 16px by default

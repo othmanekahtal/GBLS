@@ -1,0 +1,76 @@
+@import "../abstracts/variables";
+.story {
+  width: 75%;
+  margin: 0 auto;
+  background-color: rgba($white-color, 0.6);
+  padding: 6rem;
+  padding-left: 9rem;
+  box-shadow: 0 3rem 6rem rgba(#000000, 0.1);
+  border-radius: 3px;
+  transform: skewX(-10deg);
+  @include respond(lab-land) {
+    transform: skewX(-5deg);
+  }
+  @include respond(lab-port) {
+    width: 100%;
+    transform: none;
+  }
+  &::after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+  &:hover &__img {
+    filter: blur(3px) brightness(80%);
+    transform: translateX(-3rem) scale(1);
+  }
+  &:hover &__name {
+    transform: translate(-50%, -50%);
+    opacity: 1;
+  }
+  &__profile {
+    overflow: hidden;
+    position: relative;
+    float: left;
+    width: 15rem;
+    height: 15rem;
+    shape-outside: circle(50% at 50% 50%);
+    -webkit-shape-outside: circle(50% at 50% 50%);
+    clip-path: circle(50% at 50% 50%);
+    transform: translateX(-3rem) skewX(10deg);
+    @include respond(lab-land) {
+      transform: translateX(-3rem) skewX(5deg);
+    }
+    @include respond(lab-port) {
+      transform: translateX(-3rem) skewX(0);
+    }
+    // equal  border radius 50% in child
+  }
+  &__img {
+    transform: translateX(-3rem) scale(1.4);
+    height: 100%;
+    transition: all 0.5s;
+    backface-visibility: hidden;
+  }
+  &__name {
+    position: absolute;
+    color: $white-color;
+    text-align: center;
+    font-size: 1.7rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 25%);
+    opacity: 0;
+    transition: transform 0.5s;
+    backface-visibility: hidden;
+  }
+  &__content {
+    transform: skewX(10deg);
+    @include respond(lab-land) {
+      transform: skewX(5deg);
+    }
+    @include respond(lab-port) {
+      transform: none;
+    }
+  }
+}

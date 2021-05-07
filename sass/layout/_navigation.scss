@@ -1,0 +1,142 @@
+@import "../abstracts/variables";
+.navigation {
+  &__toggle {
+    display: none;
+    &:checked ~ .navigation__list {
+      opacity: 1;
+      pointer-events: all;
+      width: 100%;
+    }
+    &:checked ~ .navigation__background {
+      transform: scale(150);
+    }
+    &:checked ~ .navigation__icon-box .icon-box-line {
+      background-color: transparent;
+    }
+    &:checked ~ .navigation__icon-box .icon-box-line:before {
+      top: 0;
+      transform: rotate(135deg);
+    }
+    &:checked ~ .navigation__icon-box .icon-box-line::after {
+      top: 0;
+      transform: rotate(-135deg);
+    }
+  }
+  &__icon-box {
+    cursor: pointer;
+    position: fixed;
+    z-index: 150;
+    top: 6rem;
+    right: 6rem;
+    display: inline-block;
+    width: 6.5rem;
+    height: 6.5rem;
+    background-color: $white-color;
+    border-radius: 50%;
+    z-index: 1000;
+    box-shadow: 0 1rem 3rem rgba(#000000, 0.15);
+    @include respond(lab-port) {
+      top: 3rem;
+      right: 3rem;
+    }
+    &:hover .icon-box-line::after {
+      top: calc(50% + 1rem);
+    }
+    &:hover .icon-box-line::before {
+      top: calc(50% + -1rem);
+    }
+    .icon-box-line {
+      display: inline-block;
+      width: 40%;
+      position: absolute;
+      top: calc(50% - 1px);
+      right: 50%;
+      transform: translate(50%, 50%);
+      height: 2px;
+      background-color: black;
+      &::after,
+      &::before {
+        content: "";
+        position: absolute;
+        height: inherit;
+        background-color: black;
+        display: inline-block;
+        width: 100%;
+        right: 0;
+        transition: all 0.2s;
+      }
+      &::after {
+        top: calc(50% + 0.5rem);
+      }
+      &::before {
+        top: calc(50% - 0.75rem);
+      }
+    }
+  }
+  &__background {
+    position: fixed;
+    top: 6.25rem;
+    right: 6.25rem;
+    background-image: radial-gradient($Light-green, $Dark-green);
+    width: 6rem;
+    height: 6rem;
+    border-radius: 50%;
+    z-index: 10;
+    transition: all 0.75s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    @include respond(lab-port) {
+      top: 3.25rem;
+      right: 3.25rem;
+    }
+  }
+  &__list {
+    z-index: 100;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100vh;
+    overflow: hidden;
+    transition: all 0.75s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    opacity: 0;
+    pointer-events: none;
+  }
+  &__list-bloc {
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, -50%);
+    list-style: none;
+    text-align: center;
+  }
+  &-item {
+    margin: 1rem;
+    transition: all 0.3s;
+    &:hover {
+      transform: translateX(1rem);
+    }
+  }
+  &-anchor {
+    color: $white-color;
+    display: inline-block;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 1rem 2rem;
+    font-size: 3rem;
+    font-weight: 300;
+    transition: all 0.4s;
+    background-image: linear-gradient(
+      120deg,
+      transparent 0,
+      transparent 50%,
+      $white-color 50%
+    );
+
+    background-size: 250%;
+    background-position: left;
+    &:hover,
+    &:active {
+      color: $Dark-green;
+      background-position: right;
+    }
+  }
+}

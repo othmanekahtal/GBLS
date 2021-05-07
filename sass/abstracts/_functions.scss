@@ -1,0 +1,4 @@
+@function calc-width($gutter, $number-of-gutter, $number) {
+  $width: (100% - #{$gutter * $number-of-gutter}) / #{$number};
+  @return calc((100% - #{$gutter * $number-of-gutter}) / #{$number});
+} ;

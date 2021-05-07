@@ -1,0 +1,45 @@
+@import "../abstracts/variables";
+.input {
+  &__group {
+    margin-bottom: 2rem;
+    .label__form {
+      display: inline-block;
+      padding-left: 2rem;
+      padding-top: 1rem;
+      font-size: 1.3rem;
+      transition: all 0.45s;
+      font-size: 1.2rem;
+      font-weight: 700;
+    }
+  }
+  &-radio__form {
+    display: none;
+    &:checked ~ .radio-form__label .radio-form__button::after {
+      opacity: 1;
+    }
+  }
+  &__form {
+    font-family: inherit;
+    border: none;
+    padding: 1.5rem 2rem;
+    outline: none;
+    border-radius: 3px;
+    width: 100%;
+    border-bottom: 0.4rem solid transparent;
+    transition: border 0.45s;
+    &::placeholder {
+      color: $gray-color-2;
+    }
+    &:focus:invalid {
+      border-bottom-color: $Dark-green;
+    }
+    &:focus {
+      border-bottom-color: $Dark-orange;
+      box-shadow: 0 1.5rem 2rem rgba(#000000, 0.1);
+    }
+    &:placeholder-shown ~ .label__form {
+      opacity: 0;
+      transform: translateY(-2rem);
+    }
+  }
+}

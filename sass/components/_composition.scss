@@ -1,0 +1,56 @@
+@import "../abstracts/variables";
+.composition {
+  position: relative;
+  @include respond(lab-land) {
+    top: 8rem;
+  }
+  @include hack-clear-fix;
+  &__photo {
+    position: absolute;
+    width: 55%;
+    box-shadow: 0 2rem 4rem rgba(#000000, 0.35);
+    transition: all 0.25s $main-animation-function;
+    @include respond(lab-land) {
+      position: relative;
+      float: left;
+      width: 33.333%;
+      top: 0 !important;
+      left: 0 !important;
+    }
+    &:hover {
+      z-index: 10;
+      transform: scale(1.25) translateY(-0.2rem);
+      outline-offset: 2rem;
+      outline: 1.5rem solid $Medium-green;
+      box-shadow: 0 1.5rem 4.5rem rgba(#000000, 0.55);
+      @include respond(lab-land) {
+        outline-offset: 1.5rem;
+        outline: 1rem solid $Medium-green;
+        box-shadow: 0 1.5rem 3.5rem rgba(#000000, 0.25);
+      }
+    }
+  }
+  &__photo--2 {
+    z-index: 2;
+    left: 25rem;
+    top: 5rem;
+    @include respond(lab-land) {
+      transform: scale(1.2);
+      z-index: 4;
+    }
+    &:hover {
+      transform: scale(1.45);
+    }
+  }
+  &__photo--3 {
+    z-index: 3;
+    top: 12rem;
+    left: 15rem;
+  }
+  &:hover &__photo:not(:hover) {
+    transform: scale(0.98);
+    @include respond(lab-land) {
+      transform: scale(1);
+    }
+  }
+}

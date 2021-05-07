@@ -1,0 +1,33 @@
+//// colors :
+
+// green pallette
+$Light-green: #78d667;
+$Medium-green: hsl(105, 58%, 55%);
+$Dark-green: #479b2a;
+
+// gray pallette:
+$white-color: #fff;
+$gray-color: #777;
+$gray-light-color-1: $white-color;
+$gray-light-color-2: #eeeeee;
+$gray-color-2: #999;
+$gray-color-3: #333;
+
+// new template :
+$Dark-orange: #f16814;
+$light-orange: #ffde59;
+$black_color: #3a3a3a;
+
+//// animations function:
+
+$main-animation-function: ease-in;
+
+//// default font size:
+
+$default-font-size: 1.6rem;
+
+//// gird rules :
+
+$gridWidth: 114rem;
+$gutter-vertical: 8rem;
+$gutter-horizontal: 6rem;
